@@ -1,0 +1,28 @@
+,ascii_str,ascii_str_get,getter,getter_type,setter,setter_type,setter_range,doc,subsystem,is_config,setter_inputs,getter_inputs;
+"link,LINK,,TRUE,int,TRUE,int,""[0, 4]"",Set or query the optical port link,Link commands,,,";
+"link_serial,LNKS,,TRUE,int,TRUE,int,""[0, 4]"",Set (query) the optical port link status for the host RS-232 (serial) port {to optical port i}.,Link commands";
+"link_ethernet,LNKE,,TRUE,int,TRUE,int,""[0, 4]"",Set (query) the optical port link status for the host ethernet port,Link commands,,,";
+"link_gpib,LNKG,,TRUE,int,TRUE,int,""[0, 4]"",Set (query) the optical port link status for the host GPIB port,Link commands,,,";
+"set_escape_character,SECS,,TRUE,int,TRUE,int,""[0, 255]"",Set (query) the escape character,Link commands,,,";
+identify,*IDN,,TRUE,str,FALSE,none,None,Query the SX199 identification string,Interface commands,,,;
+"token_mode,TOKN,,TRUE,str,TRUE,int,""[0, 1]"",Set (query) the token response mode,Interface commands,,,";
+"response_termination,TERM,,TRUE,int,TRUE,int,""[0, 4]"",""Set (query) the token response mode {to z=(NONE 0, CR 1, LF 2,";
+"CRLF 3, LFCR 4)}"",Interface commands,,,";
+"operation_complete,*OPC,,TRUE,int,TRUE,none,None,""The set form, *OPC, will set the OPC bit in the Standard Event Status";
+register;" the query form, *OPC?, will return the value 1"",Interface commands,,,"
+"unlock_ethernet,ULOC,,TRUE,int,TRUE,int,""[0,255]"",Set (query) the ethernet command lockout {to i}.,Interface commands,,,";
+"ip_addr,""IPAD {byte}, {value}"",,TRUE,int,TRUE,int,""[0,255]"",Set (query) byte i of the �Custom� internet address {to j},Interface commands,TRUE,2,";
+"netmask,""NMSK {byte}, {value}"",,TRUE,int,TRUE,int,""[0,255]"",Set (query) byte i of the �Custom� internet network mask {to j},Interface commands,TRUE,2,";
+"def_gateway,""GWAY {byte}, {value}"",,TRUE,int,TRUE,int,""[0,255]"",Set (query) byte i of the internet default gateway {to j}.,Interface commands,TRUE,2,";
+"ethernet_speed,ENET,,TRUE,int,TRUE,int,""[0, 2]"",""Set (query) the ethernet speed{to z=(AUTO 0, M10 1, M100 2)}"",Interface commands,,,";
+save_user_param,SPAR,,TRUE,int,TRUE,int,[0],Save user settings to non-volatile memory. The token z should always be 0.,Interface commands;
+reset,*RST,,TRUE,none,TRUE,none,None,Reset the SX199 to its default configuration,Interface commands,,,;
+"status_byte,*STB,,TRUE,int,TRUE,int,""[0,255]"",Reads the Status Byte register,Status commands,,,";
+"service_req_enable,""*SRE {bit}, {to}"",,TRUE,int,TRUE,int,""[0, 255]"",Set (query) the Service Request Enable register [bit i] {to j},Status commands,TRUE,2,";
+"standard_event_status,*ESR,,TRUE,int,TRUE,int,""[0, 255]"",Reads the Standard Event Status Register,Status commands,,,";
+"standard_event_status_enable,""*ESE {bit}, {to}"",,TRUE,int,TRUE,int,""[0,255]"",Set (query) the Standard Event Status Enable Register,Status commands,TRUE,2,";
+"port_status_event,PSEV,,TRUE,int,TRUE,int,""[0,255]"",Reads the Port Status Event Register,Status commands,,,";
+"port_status_enable,""PSEN {bit}, {to}"",,TRUE,int,TRUE,int,""[0, 255]"",Set (query) the Port Status Enable Register,Status commands,,,";
+clear_status,*CLS,,TRUE,none,TRUE,none,None,*CLS immediately clears the ESR register and the PSEV register.,Status commands,,,;
+"last_exec_err,LEXE,,TRUE,int,TRUE,int,""[0, 255]"",""Query the last execution error code. A query of LEXE? always clears";
+"the error code, so a subsequent LEXE? will return 0"",Status commands,,,";
